@@ -1,8 +1,18 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+a {
+    color: #00B7FF;
 }
 
-a {
-  color: #00B7FF;
+#searchDiv {
+    margin: 0 auto;
+}
+
+.helper {
+    position: absolute;
+    margin-top: 25%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.content {
+
+    margin: 0 auto;
 }

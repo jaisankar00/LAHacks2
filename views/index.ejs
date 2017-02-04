@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        Research Engine
+    </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="search.ejs">Create New Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="searchDiv row col-md-8 col-md-offset-2 helper">
+            <div class="col content">
+                <h1></h1>
+                <form class="valign">
+                    <div class="form-group" action="index.html" method="post">
+                        <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <button type="submit" class="center-block btn btn-default">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="/materialize/js/materialize.min.js" type="text/javascript"></script>
+</body>
+
 </html>

@@ -4,45 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var admin = require("firebase-admin");
-var serviceAccount = require("serviceAccountKey.json");
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://lahacks2.firebaseio.com"
-});
-
-admin.auth().createUser({
-  email: "user@example.com",
-  emailVerified: false,
-  password: "secretPassword",
-  displayName: "John Doe",
-  photoURL: "http://www.example.com/12345678/photo.png",
-  disabled: false
-})
-  .then(function(userRecord) {
-    // A UserRecord representation of the newly created user is returned
-    console.log("Successfully created new user:", userRecord.uid);
-  })
-  .catch(function(error) {
-    console.log("Error creating new user:", error);
-  });
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
