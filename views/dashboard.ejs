@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Erudite Dashboard
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav style="background-color: #1E88E5">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Dashboard</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="create">Create New Project</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul id="slide-out" class="side-nav fixed">
+        <li>
+            <h3 class="center">Filter Results</h3>
+        </li>
+        <li>
+            <p>
+                <input id="youtube-checkbox" type="checkbox" class="filled-in" checked="checked" />
+                <label for="youtube-checkbox">Youtube Videos</label>
+
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="wikipedia-checkbox" type="checkbox" class="filled-in" checked="checked" />
+                <label for="wikipedia-checkbox">Wikipedia</label>
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="research-papers-checkbox" type="checkbox" class="filled-in" checked="checked" />
+                <label for="research-papers-checkbox">Research Papers</label>
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="khanacademy-checkbox" type="checkbox" class="filled-in" checked="checked" />
+                <label for="khanacademy-checkbox">Khan Academy Videos</label>
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="people-checkbox" type="checkbox" class="filled-in" checked="checked" />
+                <label for="people-checkbox">People to Meet</label>
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="technologies-checkbox" type="checkbox" class="filled-in" />
+                <label for="technologies-checkbox">Useful Technologies</label>
+            </p>
+        </li>
+        <li>
+            <p>
+                <input id="apis-checkbox" type="checkbox" class="filled-in" id="filled-in-box" />
+                <label for="apis-checkbox">Relevant APIs</label>
+            </p>
+        </li>
+    </ul>
+
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <div class="container-fluid">
+        <div class="resultsDiv">
+            <div class="row outer">
+                <div class="col s12">
+                    <h1>Youtube Videos</h1>
+                    <div class="input-field col s12">
+                        <select id="youtube-keywords">
+                           <option value="" selected>Choose Keyword</option>
+
+                         </select>
+                        <label>Choose Keyword</label>
+                    </div>
+                    <div class="scrollDiv">
+                        <ul id="youtube-videos">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row outer">
+                <div class="col s12">
+                    <h1>KhanAcademy Videos</h1>
+                    <div class="input-field col s12">
+                        <select id="khanacademy-keywords">
+                           <option value="" selected>Choose Keyword</option>
+
+                         </select>
+                        <label>Choose Keyword</label>
+                    </div>
+                    <div class="scrollDiv">
+                        <ul id="khanacademy-videos">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row outer">
+                <div class="col s12">
+                    <h1>Wikipedia Articles</h1>
+
+                    <div class="scrollDiv">
+                        <ul id="wikipedia-articles">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row outer">
+                <div class="col s12">
+                    <h1>Research Papers</h1>
+                    <div class="input-field col s12">
+                        <select id="research-keywords">
+                           <option value="" selected>Choose Keyword</option>
+
+                         </select>
+                        <label>Choose Keyword</label>
+                    </div>
+                    <div class="scrollDiv">
+                        <ul id="research-papers">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row outer">
+                <div class="col s12">
+                    <h1>Meet with People</h1>
+
+                    <div class="scrollDiv">
+                        <ul id="meetups">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="/javascripts/script.js" type="text/javascript"></script>
+    <script src="/materialize/js/materialize.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</body>
+
+</html>

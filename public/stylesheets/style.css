@@ -1,18 +1,14 @@
+
+@media only screen and (max-width: 992px) {
+    .container {
+        padding-left: 0;
+    }
+}
+
 a {
     color: #00B7FF;
 }
 
 #searchDiv {
-    margin: 0 auto;
-}
-
-.helper {
-    position: absolute;
-    margin-top: 25%;
-    display: inline-block;
-    vertical-align: middle;
-}
-.content {
-
     margin: 0 auto;
 }

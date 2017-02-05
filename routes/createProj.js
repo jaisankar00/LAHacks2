@@ -1,0 +1,69 @@
+var express = require('express');
+var router = express.Router();
+var admin = require("firebase-admin");
+
+admin.initializeApp({
+    credential: admin.credential.cert({
+        "type": "service_account",
+        "project_id": "lahacks2",
+        "private_key_id": "df8277cabd50a73019e6c83563d55dd88f02acf8",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1+1Z2uYH/N6Ld\nnOA4MxXUjB6MgfTzruV8yrEzQPAdM34StWdLni5rnBqZI/JfzMTv08n6yOqFo6oh\n7GSecyDgAgjEHxhoKHSkSWaOZ9JZwffLyWklbZcQ2voHuKBguAz84z7W9VjstdMX\nbGlcPCsbbhWjW46Zv+uidPAGutSPjp0dOtSlrLAdzxHrglYkvjtdL0Wh/GK9YKH4\ndlZgi8jBLxJGLOD715mm55UD0ZjdhRlkHdvtZmLGv9Yc6ZIWY1yuCByCnTi8z1no\nLRz8sXcb6avKbSiJKdzdBvSmsnTTYZPVb8/SvJKXFxLZq1GHFyLQ0jNaHLH1pkDg\nOPud98PLAgMBAAECggEAAkecxK38P+s9ghM2B94z9s6uj0oNfIQDYfXUFHVKzMLZ\nYHifS6Y2pKh2+NYnciXJjcuUayzbK0NqnTQt6oI8tjGwVGyjTKK9G1XEECKi0vcI\nGKh0RcDCtLZZjYE1mSCVIRHjtqOqMoTwmQmFpF8olxZg9QPvnGN4Gzflzd/HS+kT\nCz/Ev1zyo92dR/RWSYBUPIOISyfUW4WKbZAzXO7v/Pq+ejqD5CB5U2o+3rxWXrg4\nH6MvcpcUghKs7bkrYLDVJLcI6KVG9qiUBAHjQvoImkL4USlvV5MilK5USLl4Bf4t\nFppB912LzlA54JJhhqWryUMRtlo6Kh/n3AMQpk5BUQKBgQDgvEMhRJ0imvCU7PIT\nkMggQId7GQNAOjeu3gAeVq1AbB1CSvCBoUcFhJOm8Jj8H2CtVNZU28MqrAP5Kpex\ntr+D4e0GRziA2bAALhBltp6Wa/qB48lBd4nC1L4KH5I+YfzgcvZKK+s+p/djfHz4\nrr2RR4KqPgzozA/wOVNEcwgicwKBgQDPTHI+uCbwGlTuoSNcgk6+PXfU7BeIXcYe\nuZppk0kym+9ezRbq2LxnRHMFx2KsoKXfyaX7Ik+fRHW0SUkdOJj8LGap0fEoKRyl\nUL+2EZjHBsCF2F/FE/ibzgDl1XfpR9wZupxEmY/LF1aBR0YDtf0i3OwTHLRDSL8q\n8rEf0mkLSQKBgAqHByYBztKWK3rudpCQEa/hFfegPlS95WndoGfLa6Y+6kf2trl7\n0pXhlgEV+DSnS6IS/U9QVB4lnLIJWr3Kb8I/zRikMXNnvyTjA4WgPmGRgVSgVQcq\nEFv+F0DmJbWiZXQmLn9e+1AeEiqo5DnKBbtOfEJ5UaV+GakJJmtocBMdAoGAdl5i\nhenFYijHApPEi1hk+kBDIrPFJDrXnEfDIjHWBC4CWxGk2mjz+8ucGlqlv4jj7otI\nWcRXzsvaoh2OwD7HLId1/9Y/a/09vDAFqEMYB92VJVhOJ0ymEuFopdRk6jH8PjzO\namV9NCyZWqyGECxk5PldW/RyAlGRx0ZZWaBeFvECgYAlzsBHdv4myVW7enpnxoE/\nO9QbnLkJQ6u5/SQMvw/3fI9t6wh1lfX3w+Tfx7ynlE/gomLJPHqMCyug7fdAyyP9\nUlvHpawM7G6XufWKfe1HxFIsjNsyALnAih2ucBphbO+pwePx+05MxWIQIUBhhRD7\nOQF77yPuyuAFhLC3y3q4rA==\n-----END PRIVATE KEY-----\n",
+        "client_email": "firebase-adminsdk-jazxz@lahacks2.iam.gserviceaccount.com",
+        "client_id": "116535369694073272796",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://accounts.google.com/o/oauth2/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jazxz%40lahacks2.iam.gserviceaccount.com"
+    }),
+    databaseURL: "https://lahacks2.firebaseio.com"
+});
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('create');
+});
+
+
+router.post('/projects/create', function(req, res) {
+    var proj = req.body;
+    var name = proj.project_name.trim();
+    var keywordsStr = proj.keywords.trim();
+    var catVal = proj.categoryPicker.trim();
+    var categoryNum = catVal.split(" ")[0].trim();
+    var category = "";
+    var subCategory = catVal.substring(catVal.indexOf(" ") + 3).trim();
+    var keywords = [];
+    var categories = ["Behavior Sciences", "Plant Sciences", "Animal Sciences", "Biochemistry/ Microbiology", "Computational Biology and Bioinformatics", "Biomedical and Health Sciences", "Biomedical Engineering", "Chemistry", "Chemical/Environmental Engineering", "Earth and Environmental Sciences", "Physics and Astronomy", "Electrical Engineering", "Mechanical Engineering", "Mathematics", "Software Engineering"];
+
+    for (var i = 0; i < keywordsStr.split(",").length; i++) {
+        keywords.push(keywordsStr.split(",")[i].trim());
+    }
+
+    category = categories[categoryNum - 1];
+
+    var projDesc = {
+        "name": name,
+        "keywords": keywords,
+        "category": category,
+        "subCategory": subCategory
+    }
+
+    admin.auth().createUser({
+        email: "sreeharsha11@gmail.com"
+    });
+
+    var db = admin.database();
+
+    db.ref("projects").set(projDesc);
+
+    console.log("Name: " + name);
+    console.log("Keywords: " + keywords);
+    console.log("Category: " + category);
+    console.log("Sub Category: " + subCategory);
+
+    res.redirect("/dashboard");
+    res.end();
+
+});
+
+module.exports = router;

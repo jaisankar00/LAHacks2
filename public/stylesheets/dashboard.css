@@ -1,0 +1,83 @@
+@media only screen and (max-width: 992px) {
+    .container {
+        padding-left: 0;
+    }
+}
+
+a {
+    color: #00B7FF;
+}
+
+.container-fluid {
+  padding-left: 300px;
+}
+
+.scrollDiv ul {
+    padding: 5px 25px;
+
+}
+
+.scrollDiv > ul > li {
+    margin: 0 10px;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    display: table-cell;
+    padding: 5px;
+    margin: 5px;
+}
+
+.outer {
+  display: none;
+}
+
+.card {
+  height: 100%;
+  width: 400px;
+}
+
+iframe {
+  width: 400px;
+  height: 80%;
+}
+
+#resultsDiv {
+    width: 100%;
+    position: relative;
+}
+
+.card-title {
+  font-size: 1.5em !important;
+}
+
+.scrollDiv {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 400px;
+    /* ie9 needs height */
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 50px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding-left: 30px;
+}
+
+.side-nav > li >  p > label {
+    font-family: "Helvetica Neue";
+    font-weight: 100;
+    font-size: 1.6em !important;
+    color: black;
+    margin-left: 20px;
+}
+
+.side-nav> li > h3 {
+    font-family: "Helvetica Neue";
+    font-weight: 100;
+    padding-bottom: 30px;
+    border-bottom: 1px solid grey;
+    font-size: 2.6em !important;
+    color: black;
+}

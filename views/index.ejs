@@ -3,33 +3,39 @@
 
 <head>
     <title>
-        Research Engine
+        Erudite
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
 </head>
 
 <body>
 
-    <nav>
+    <nav style="background-color: #1E88E5">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"></a>
+            <a href="#" class="brand-logo center">Erudite</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="search.ejs">Create New Project</a></li>
+                <li><a href="create">Create New Project</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="searchDiv row col-md-8 col-md-offset-2 helper">
-            <div class="col content">
-                <h1></h1>
-                <form class="valign">
-                    <div class="form-group" action="index.html" method="post">
-                        <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
-                    </div>
-                    <button type="submit" class="center-block btn btn-default">Search</button>
-                </form>
+    <div class="center container">
+        <div style="margin-top: 5%">
+            <img width="300" height="300" src="/images/erudite-logo.png" />
+            <h1>E   R   U   D   I   T   E</h1>
+            <div class="searchDiv center row">
+                <div class="col s12">
+                    <form>
+                        <div class="form-group" action="index.html" method="post">
+                            <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <button type="submit" style="background-color: #1E88E5" class="center-block btn btn-default">Search</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Erudite
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav style="background-color: #1E88E5">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Create new project</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="searchDiv center row">
+            <div style="margin-top: 5%;" class="col s12">
+                <img width="300" height="300" src="/images/erudite-logo.png" />
+                <h1>E   R   U   D   I   T   E</h1>
+                <h1>Create new project</h1>
+                <form id="searchForm" method="post" action="/create/projects/create" class="col s12 m12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="project_name" name="project_name" placeholder="Project Name" type="text" class="validate">
+                            <label for="project_name">Project Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="keywords" name="keywords" placeholder="Project Key Words (i.e. brain waves, electrons, arduino, adhd, malaria)" type="text" class="validate">
+                            <label for="keywords">Enter Keywords</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select name="categoryPicker">
+                              <option value="" disabled selected>Select Project Category (You may select multiple categories)</option>
+                              <optgroup label="Behavior Sciences">
+                                <option value="1 - Clinical Developmental Psychology">Clinical &amp; Developmental Psychology</option>
+                                <option value="1 - Clinical and Cognitive Psychology">Clinical &amp; Cognitive Psychology</option>
+                                <option value="1 - Clinical and Physiological Psychology">Clinical &amp; Physiological Psychology</option>
+                                <option value="1 - Clinical and Developmental Psychology">Clinical &amp; Developmental Psychology</option>
+                                <option value="1 - Clinical and Social Psychology">Clinical &amp; Social Psychology</option>
+                              </optgroup>
+                              <optgroup label="Plant Sciences">
+                                <option value="2 - Agronomy">Agronomy</option>
+                                <option value="2 - Growth and Development">Growth and Development</option>
+                                <option value="2 - Ecology">Ecology</option>
+                                <option value="2 - Genetics/Breeding">Genetics/Breeding</option>
+                                <option value="2 - Pathology">Pathology</option>
+                                <option value="2 - Physiology (Molecular, Cellular, Organismal)">Physiology (Molecular, Cellular, Organismal)</option>
+                                <option value="2 - Systematics and Evolution">Systematics and Evolution</option>
+                              </optgroup>
+                              <optgroup label="Animal Sciences">
+                                <option value="3 - Animal Behavior">Animal Behavior</option>
+                                <option value="3 - Development">Development</option>
+                                <option value="3 - Ecology">Ecology</option>
+                                <option value="3 - Genetics">Genetics</option>
+                                <option value="3 - Nutrition and Growth">Nutrition and Growth</option>
+                                <option value="3 - Pathology">Pathology</option>
+                                <option value="3 - Physiology">Physiology</option>
+                                <option value="3 - Systematics and Evolution">Systematics and Evolution</option>
+                              </optgroup>
+                              <optgroup label="Biochemistry/ Microbiology">
+                                <option value="4 - Analytical Biochemistry">Analytical Biochemistry</option>
+                                <option value="4 - General Biochemistry">General Biochemistry</option>
+                                <option value="4 - Medicinal Biochemistry">Medicinal Biochemistry</option>
+                                <option value="4 - Structural Biochemistry">Structural Biochemistry</option>
+                                <option value="4 - Nutrition and Growth">Nutrition and Growth</option>
+                                <option value="4 - Metabolism">Metabolism</option>
+                                <option value="4 - Cell Physiology">Cell Physiology</option>
+                                <option value="4 - Cellular and Molecular Genetics">Cellular and Molecular Genetics</option>
+                                <option value="4 - Immunology">Immunology</option>
+                                <option value="4 - Molecular Biology">Molecular Biology</option>
+                                <option value="4 - Neurobiology">Neurobiology</option>
+                                <option value="4 - Antibiotics, Antimicrobials">Antibiotics, Antimicrobials</option>
+                                <option value="4 - Bacteriology">Bacteriology</option>
+                                <option value="4 - Microbial Genetics">Microbial Genetics</option>
+                                <option value="4 - Virology">Virology</option>
+                              </optgroup>
+                              <optgroup label="Computational Biology and Bioinformatics">
+                                <option value="5 - Computational Evolutionary Biology">Computational Evolutionary Biology</option>
+                                <option value="5 - Computational Neuroscience">Computational Neuroscience</option>
+                                <option value="5 - Computational Pharmacology">Computational Pharmacology</option>
+                                <option value="5 - Genomics">Genomics</option>
+                                <option value="5 - Image Analysis">Image Analysis</option>
+                              </optgroup>
+                              <optgroup label="Biomedical and Health Sciences">
+                                <option value="6 - Disease Diagnosis and Treatment, Drug Development and Testing">Disease Diagnosis and Treatment, Drug Development and Testing</option>
+                                <option value="6 - Epidemiology">Epidemiology</option>
+                                <option value="6 - Human Genetics">Human Genetics</option>
+                                <option value="6 - Nutrition">Nutrition</option>
+                                <option value="6 - Physiology and Pathology">Physiology and Pathology</option>
+                              </optgroup>
+                              <optgroup label="Biomedical Engineering">
+                                <option value="7 - Biomedical technology">Biomedical technology</option>
+                                <option value="7 - Biomedical diagnostics">Biomedical diagnostics</option>
+                                <option value="7 - Biomedical therapy">Biomedical therapy</option>
+                                <option value="7 - Biomechanics">Biomechanics</option>
+                                <option value="7 - Biomaterials">Biomaterials</option>
+                              </optgroup>
+                              <optgroup label="Chemistry">
+                                <option value="8 - Analytical Chemistry">Analytical Chemistry</option>
+                                <option value="8 - Ceramics and Glasses">Ceramics and Glasses</option>
+                                <option value="8 - Composite Materials">Composite Materials</option>
+                                <option value="8 - Computational and Theory">Computational and Theory</option>
+                                <option value="8 - Environmental Chemistry">Environmental Chemistry</option>
+                                <option value="8 - Inorganic Chemistry">Inorganic Chemistry</option>
+                                <option value="8 - Materials Chemistry">Materials Chemistry</option>
+                                <option value="8 - Nanomaterials">Nanomaterials</option>
+                                <option value="8 - Organic Chemistry">Organic Chemistry</option>
+                                <option value="8 - Physical Chemistry">Physical Chemistry</option>
+                              </optgroup>
+                              <optgroup label="Chemical/Environmental Engineering">
+                                <option value="9 - Alternative Energy">Alternative Energy</option>
+                                <option value="9 - Fossil Fuel Energy">Fossil Fuel Energy</option>
+                                <option value="9 - Fuel Cells and Battery Development">Fuel Cells and Battery Development</option>
+                                <option value="9 - Materials Engineering">Materials Engineering</option>
+                                <option value="9 - Process Engineering">Process Engineering</option>
+                                <option value="9 - Product Testing (Grades 6–8 only)">Product Testing (Grades 6–8 only)</option>
+                                <option value="9 - Solar Materials">Solar Materials</option>
+                                <option value="9 - Bioremediation">Bioremediation</option>
+                                <option value="9 - Ecosystems Management, Forestry">Ecosystems Management, Forestry</option>
+                                <option value="9 - Land Reclamation">Land Reclamation</option>
+                                <option value="9 - Pollution Control: Air, Water, Soil">Pollution Control: Air, Water, Soil</option>
+                                <option value="9 - Recycling and Waste Management">Recycling and Waste Management</option>
+                                <option value="9 - Water Resources Management">Water Resources Management</option>
+                              </optgroup>
+                              <optgroup label="Earth and Environmental Sciences">
+                                <option value="10 - Atmospheric Science, Weather">Atmospheric Science, Weather</option>
+                                <option value="10 - Climate Science">Climate Science</option>
+                                <option value="10 - Environmental Effects on Ecosystems">Environmental Effects on Ecosystems</option>
+                                <option value="10 - Geosciences">Geosciences</option>
+                                <option value="10 - Planetary Geology">Planetary Geology</option>
+                                <option value="10 - Soil Science">Soil Science</option>
+                                <option value="10 - Tectonics">Tectonics</option>
+                                <option value="10 - Water Sciences">Water Sciences</option>
+                              </optgroup>
+                              <optgroup label="Physics and Astronomy">
+                                <option value="11 - Atomic, Molecular and Optical Physics">Atomic, Molecular and Optical Physics</option>
+                                <option value="11 - Astronomy and Cosmology">Astronomy and Cosmology</option>
+                                <option value="11 - Biological Physics">Biological Physics</option>
+                                <option value="11 - Computational Physics and Astrophysics">Computational Physics and Astrophysics</option>
+                                <option value="11 - Condensed Matter and Materials">Condensed Matter and Materials</option>
+                                <option value="11 - Instrumentation">Instrumentation</option>
+                                <option value="11 - Magnetics, Electromagnetics, and Plasmas">Magnetics, Electromagnetics, and Plasmas</option>
+                                <option value="11 - Mechanics">Mechanics</option>
+                                <option value="11 - Nuclear and Particle Physics">Nuclear and Particle Physics</option>
+                                <option value="11 - Optics, Lasers, Masers">Optics, Lasers, Masers</option>
+                                <option value="11 - Theoretical Physics">Theoretical Physics</option>
+                              </optgroup>
+                              <optgroup label="Electrical Engineering">
+                                <option value="12 - Circuits">Circuits</option>
+                                <option value="12 - Computer Hardware">Computer Hardware</option>
+                                <option value="12 - Controls">Controls</option>
+                                <option value="12 - Electrical, Optical and Magnetic Materials">Electrical, Optical and Magnetic Materials</option>
+                                <option value="12 - Embedded Systems">Embedded Systems</option>
+                                <option value="12 - Internet of Things">Internet of Things</option>
+                                <option value="12 - Networking and Data Communication">Networking and Data Communication</option>
+                                <option value="12 - Sensors">Sensors</option>
+                                <option value="12 - Signal Processing">Signal Processing</option>
+                                <option value="12 - Wearable Technology">Wearable Technology</option>
+                              </optgroup>
+                              <optgroup label="Mechanical Engineering">
+                                <option value="13 - Aerospace and Aeronautical Engineering">Aerospace and Aeronautical Engineering</option>
+                                <option value="13 - Aerodynamics">Aerodynamics</option>
+                                <option value="13 - Civil Engineering, Construction Engineering">Civil Engineering, Construction Engineering</option>
+                                <option value="13 - Computational Mechanics">Computational Mechanics</option>
+                                <option value="13 - Computational Energy">Computational Energy</option>
+                                <option value="13 - Control Theory">Control Theory</option>
+                                <option value="13 - Ground Vehicle Systems">Ground Vehicle Systems</option>
+                                <option value="13 - Industrial Engineering">Industrial Engineering</option>
+                                <option value="13 - Marine Engineering">Marine Engineering</option>
+                                <option value="13 - Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="13 - Robotics and Intelligent Machines">Robotics and Intelligent Machines</option>
+                                <option value="13 - Solar Energy">Solar Energy</option>
+                              </optgroup>
+                              <optgroup label="Mathematics">
+                                <option value="14 - Algebra">Algebra</option>
+                                <option value="14 - Analysis">Analysis</option>
+                                <option value="14 - Combinatorics, Graph Theory and Game Theory">Combinatorics, Graph Theory and Game Theory</option>
+                                <option value="14 - Computer Mathematics">Computer Mathematics</option>
+                                <option value="14 - Geometry and Topology">Geometry and Topology</option>
+                                <option value="14 - Number Theory">Number Theory</option>
+                                <option value="14 - Probability and Statistics">Probability and Statistics</option>
+                              </optgroup>
+                              <optgroup label="Software Engineering">
+                                <option value="15 - Algorithms">Algorithms</option>
+                                <option value="15 - Analytics">Analytics</option>
+                                <option value="15 - Artificial Intelligence">Artificial Intelligence</option>
+                                <option value="15 - Benchmarking">Benchmarking</option>
+                                <option value="15 - Big Data">Big Data</option>
+                                <option value="15 - Cloud Computing">Cloud Computing</option>
+                                <option value="15 - Cognitive Computing">Cognitive Computing</option>
+                                <option value="15 - Cybersecurity">Cybersecurity</option>
+                                <option value="15 - Databases">Databases</option>
+                                <option value="15 - Computer Graphics, Simulations, Image Processing">Computer Graphics, Simulations, Image Processing</option>
+                                <option value="15 - Computer Systems, Operating Systems">Computer Systems, Operating Systems</option>
+                                <option value="15 - Mobile Computing">Mobile Computing</option>
+                                <option value="15 - Networking and Communications">Networking and Communications</option>
+                                <option value="15 - Product Testing">Product Testing</option>
+                                <option value="15 - Programming Languages">Programming Languages</option>
+                              </optgroup>
+                           </select>
+                            <label>Project Category</label>
+                        </div>
+                    </div>
+                    <div class="formStatusMsg"></div>
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            <button style="background-color: #1E88E5" class="btn waves-effect waves-light" type="submit" name="action">
+                              Search
+                              <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/javascripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="/materialize/js/materialize.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</body>
+
+</html>
